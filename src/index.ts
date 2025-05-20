@@ -37,4 +37,3 @@ export default class AppInfoParser {
     return this.parser.parse();
   }
 }
-export default AppInfoParser;

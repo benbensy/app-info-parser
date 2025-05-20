@@ -25,7 +25,7 @@ export default class IpaParser extends Zip {
 
   parse(): Promise<IpaInfoType> {
     const entries = [PLIST_NAME, PROVISION_NAME];
-    const [PLIST_KEY, PROVISION_KEY] = entries.map(entry => entry.toString());
+    const [PLIST_KEY, PROVISION_KEY] = entries.map((entry) => entry.toString());
     return new Promise<IpaInfoType>((resolve, reject) => {
       this.getEntries(entries)
         .then((buffers: any) => {
@@ -43,7 +43,7 @@ export default class IpaParser extends Zip {
             findIpaIconPath(plistInfo).toLowerCase()
           );
           this.getEntry(iconRegex)
-            .then(iconBuffer => {
+            .then((iconBuffer) => {
               try {
                 // In general, the ipa file's icon has been specially processed, should be converted
                 plistInfo.icon = iconBuffer

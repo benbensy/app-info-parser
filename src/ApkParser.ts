@@ -22,7 +22,9 @@ export default class ApkParser extends Zip {
 
   public parse(): Promise<ApkInfoType> {
     const entries = [MANIFEST_NAME, RESOURCE_NAME];
-    const [MANIFEST_KEY, RESOURCE_KEY] = entries.map(entry => entry.toString());
+    const [MANIFEST_KEY, RESOURCE_KEY] = entries.map((entry) =>
+      entry.toString()
+    );
     return new Promise<ApkInfoType>((resolve, reject) => {
       this.getEntries(entries)
         .then((buffers: any) => {
@@ -49,7 +51,7 @@ export default class ApkParser extends Zip {
                     ? getBase64FromBuffer(iconBuffer)
                     : null;
                 })
-                .catch(e => {
+                .catch((e) => {
                   console.warn('[Warning] failed to parse icon: ', e);
                 })
                 .finally(() => {
