@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0-beta.0",
+  "version": "1.0.0",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -15,7 +15,6 @@
     "build": "tsdx build",
     "test": "tsdx test",
     "lint": "tsdx lint",
-    "prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why"
   },
@@ -30,8 +29,8 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "@bytrace/app-info-parser",
-  "author": "lianghanxian",
+  "name": "app-info-parser-dist",
+  "author": "benbensy",
   "module": "dist/app-info-parser.esm.js",
   "size-limit": [
     {
