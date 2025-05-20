@@ -1,14 +1,18 @@
 {
   "version": "1.0.0",
+  "type": "module",
+  "module": "./dist/app-info-parser-dist.esm.js",
   "license": "MIT",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
   "files": [
     "dist",
     "src"
   ],
-  "engines": {
-    "node": ">=10"
+  "exports": {
+    ".": {
+      "import": "./dist/app-info-parser-dist.esm.js",
+      "require": "./dist/app-info-parser-dist.cjs.production.min.js",
+      "types": "./dist/index.d.ts"
+    }
   },
   "scripts": {
     "start": "tsdx watch",
@@ -31,14 +35,13 @@
   },
   "name": "app-info-parser-dist",
   "author": "benbensy",
-  "module": "dist/app-info-parser.esm.js",
   "size-limit": [
     {
-      "path": "dist/app-info-parser.cjs.production.min.js",
+      "path": "dist/app-info-parser-dist.cjs.production.min.js",
       "limit": "10 KB"
     },
     {
-      "path": "dist/app-info-parser.esm.js",
+      "path": "dist/app-info-parser-dist.esm.js",
       "limit": "10 KB"
     }
   ],
