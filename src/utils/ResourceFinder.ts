@@ -409,12 +409,10 @@ export class ResourceFinder {
     }
 
     for (const refKey in refKeys) {
-      const values = this.responseMap[
-        '@' +
-          Number(refKeys[refKey])
-            .toString(16)
-            .toUpperCase()
-      ];
+      const values =
+        this.responseMap[
+          '@' + Number(refKeys[refKey]).toString(16).toUpperCase()
+        ];
       if (values && Object.keys(values).length < 1000) {
         for (const value in values) {
           this.putIntoMap('@' + refKey, value, resConfig);
@@ -544,6 +542,8 @@ export class ResourceFinder {
     this.responseMap[resId.toUpperCase()].push({
       value,
       locate: config.locate,
+      language: config.language,
+      region: config.region,
     });
   }
 }

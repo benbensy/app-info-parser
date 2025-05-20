@@ -99,7 +99,12 @@ export interface ApkInfoType {
   supportsGlTextures: any[];
   application: {
     theme: string;
-    label: { value: string; locate: string }[];
+    label: {
+      value: string;
+      locate: string;
+      language: string;
+      region: string;
+    }[];
     icon: { value: string }[];
     debuggable: boolean;
     allowBackup: boolean;
