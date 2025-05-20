@@ -12,7 +12,8 @@
       "import": "./dist/app-info-parser-dist.esm.js",
       "require": "./dist/app-info-parser-dist.cjs.production.min.js",
       "types": "./dist/index.d.ts"
-    }
+    },
+    "./types": "./dist/types/index.d.ts"
   },
   "scripts": {
     "start": "tsdx watch",

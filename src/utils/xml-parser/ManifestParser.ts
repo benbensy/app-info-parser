@@ -87,7 +87,7 @@ export class ManifestParser {
     target.intentFilters = [];
     target.metaData = [];
 
-    return element.childNodes!.forEach(element => {
+    return element.childNodes!.forEach((element) => {
       switch (element.nodeName) {
         case 'intent-filter': {
           const intentFilter = this.collapseAttributes(element);
@@ -96,7 +96,7 @@ export class ManifestParser {
           intentFilter.categories = [];
           intentFilter.data = [];
 
-          element.childNodes!.forEach(element => {
+          element.childNodes!.forEach((element) => {
             switch (element.nodeName) {
               case 'action':
                 intentFilter.actions.push(this.collapseAttributes(element));
@@ -132,7 +132,7 @@ export class ManifestParser {
     app.usesLibraries = [];
     app.metaData = [];
 
-    element.childNodes!.forEach(element => {
+    element.childNodes!.forEach((element) => {
       switch (element.nodeName) {
         case 'activity': {
           const activity = this.collapseAttributes(element);
@@ -171,7 +171,7 @@ export class ManifestParser {
           provider.metaData = [];
           provider.pathPermissions = [];
 
-          element.childNodes!.forEach(element => {
+          element.childNodes!.forEach((element) => {
             switch (element.nodeName) {
               case 'grant-uri-permission':
                 provider.grantUriPermissions.push(
@@ -203,15 +203,15 @@ export class ManifestParser {
   }
 
   isLauncherActivity(activity: Activities) {
-    return activity.intentFilters.some(function(filter) {
+    return activity.intentFilters.some(function (filter) {
       const hasMain = filter.actions.some(
-        action => action.name === INTENT_MAIN
+        (action) => action.name === INTENT_MAIN
       );
       if (!hasMain) {
         return false;
       }
       return filter.categories.some(
-        category => category.name === CATEGORY_LAUNCHER
+        (category) => category.name === CATEGORY_LAUNCHER
       );
     });
   }
@@ -233,7 +233,7 @@ export class ManifestParser {
     manifest.supportsGlTextures = [];
     manifest.application = Object.create(null);
 
-    document?.childNodes?.forEach(element => {
+    document?.childNodes?.forEach((element) => {
       switch (element.nodeName) {
         case 'uses-permission':
           manifest.usesPermissions.push(this.collapseAttributes(element));
@@ -263,7 +263,7 @@ export class ManifestParser {
           manifest.supportsScreens = this.collapseAttributes(element);
           break;
         case 'compatible-screens':
-          element.childNodes?.forEach(screen => {
+          element.childNodes?.forEach((screen) => {
             if (screen.nodeType === NodeType.ELEMENT_NODE) {
               return manifest.compatibleScreens.push(
                 this.collapseAttributes(screen)
@@ -279,12 +279,6 @@ export class ManifestParser {
           break;
       }
     });
-
-    if (typeof manifest.application.label === 'string') {
-      manifest.application.label = [
-        { value: manifest.application.label, locate: 'default' },
-      ];
-    }
 
     return manifest;
   }

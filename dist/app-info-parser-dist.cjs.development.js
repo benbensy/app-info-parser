@@ -889,12 +889,6 @@ var ManifestParser = /*#__PURE__*/function () {
           break;
       }
     });
-    if (typeof manifest.application.label === 'string') {
-      manifest.application.label = [{
-        value: manifest.application.label,
-        locate: 'default'
-      }];
-    }
     return manifest;
   };
   return ManifestParser;
