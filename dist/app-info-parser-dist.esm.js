@@ -1274,7 +1274,9 @@ var ResourceFinder = /*#__PURE__*/function () {
     }
     this.responseMap[resId.toUpperCase()].push({
       value: value,
-      locate: config.locate
+      locate: config.locate,
+      language: config.language,
+      region: config.region
     });
   };
   return ResourceFinder;

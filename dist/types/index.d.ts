@@ -101,6 +101,8 @@ export interface ApkInfoType {
         label: {
             value: string;
             locate: string;
+            language: string;
+            region: string;
         }[];
         icon: {
             value: string;
